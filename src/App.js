@@ -1,13 +1,23 @@
+import React, { Component } from 'react'
+import Fruit from './Fruit';
 
-import React from 'react';
+export default class App extends Component { 
+  
+  render() {
 
-function App() {
-  return (
+     let fruits=["Apple","Mango","Banana","Lemon"]
+     
+    return (
     <div className="App">
-      <h1>My React App</h1>
+      <h1>Components 1</h1>
+      <ul>
+        {fruits.map(item=>
+          <li  style={{display:"flex"}}><Fruit fruitName={item} 
+          />
+         </li>
+        )}
+      </ul>
     </div>
-  );
+    )
+  }
 }
-
-
-export default App;
