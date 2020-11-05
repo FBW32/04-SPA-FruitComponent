@@ -1,13 +1,33 @@
+import React, { Component } from 'react'
+import Fruit from './Fruit'
 
-import React from 'react';
+export default class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <h1>My React App</h1>
-    </div>
-  );
+  state={
+    status:true,
+    fruits:['Apple', 'Banana', 'Mango', 'Orange']
+  }
+
+
+  render() {
+    return (
+      <div >
+        {
+        this.state.status && 
+        <div>
+          {this.state.fruits.map(fruitName =>{
+
+            return (
+              <Fruit fruitName={fruitName}/>
+              
+          )        
+          })}
+          <button onClick={()=>this.setState({status:false})}>Delete all</button>
+        </div>
+      }
+      
+      </div>
+    )
+  }
 }
 
-
-export default App;
